@@ -16,16 +16,12 @@ RUN apt-get update && \
   php7.0-curl \
   php7.0-zip \
   php7.0-xml \
-  php7.0-sqlite3
+  php7.0-sqlite3 \
+  php7.0-opcache
 
 ARG INSTALL_XDEBUG=false
 RUN if [ ${INSTALL_XDEBUG} = true ]; then \
     apt-get install php7.0-xdebug \
-;fi
-
-ARG INSTALL_OPCACHE=false
-RUN if [ ${INSTALL_OPCACHE} = true ]; then \
-    apt-get install php7.0-opcache \
 ;fi
 
 RUN rm -r /var/lib/apt/lists/*
