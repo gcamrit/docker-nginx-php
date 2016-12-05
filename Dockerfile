@@ -4,20 +4,20 @@ MAINTAINER MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 
 RUN apt-get update && \
   apt-get install -y \
-  php7.0 \
-  php7.0-fpm \
-  php7.0-cli \
-  php7.0-common \
-  php7.0-mbstring \
-  php7.0-mcrypt \
-  php7.0-json \
-  php7.0-gd \
-  php7.0-mysql \
-  php7.0-curl \
-  php7.0-zip \
-  php7.0-xml \
-  php7.0-sqlite3 \
-  php7.0-opcache
+  php5.6 \
+  php5.6-fpm \
+  php5.6-cli \
+  php5.6-common \
+  php5.6-mbstring \
+  php5.6-mcrypt \
+  php5.6-json \
+  php5.6-gd \
+  php5.6-mysql \
+  php5.6-curl \
+  php5.6-zip \
+  php5.6-xml \
+  php5.6-sqlite3 \
+  php5.6-opcache
 
 ARG INSTALL_XDEBUG=false
 RUN if [ ${INSTALL_XDEBUG} = true ]; then \
