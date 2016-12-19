@@ -4,7 +4,7 @@ MAINTAINER MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 
 RUN \
   add-apt-repository ppa:ondrej/php && \
-  apt-get update && \
+  apt-get update \
   apt-get install -y nginx \
   php7.0 \
   php7.0-fpm \
