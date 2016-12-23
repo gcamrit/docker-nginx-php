@@ -4,9 +4,7 @@ MAINTAINER MAINTAINER Amrit G.C. <music.demand01@gmail.com>
 RUN \
   apt-get update &&\
   apt-get install -y language-pack-en-base \
-  export LC_ALL=en_US.UTF-8 \
-  export LANG=en_US.UTF-8 \
-  add-apt-repository ppa:ondrej/php \
+  LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php \
   apt-get update \
   apt-get -y upgrade
 
