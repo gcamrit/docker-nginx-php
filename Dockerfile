@@ -6,6 +6,9 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
 
 RUN \
+  apt-get install -y language-pack-en-base && \
+  export LC_ALL=en_US.UTF-8 \
+  export LANG=en_US.UTF-8 \
   add-apt-repository ppa:ondrej/php && \
   apt-get update \
   apt-get install -y nginx \
