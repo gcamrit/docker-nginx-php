@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 MAINTAINER MAINTAINER Amrit G.C. <music.demand01@gmail.com>
-RUN apt-get updatr
+RUN apt-get update
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
 
