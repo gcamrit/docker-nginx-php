@@ -18,31 +18,31 @@ RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 \
 
 RUN \
   apt-get install -y nginx \
-  php7.0 \
-  php7.0-fpm \
-  php7.0-cli \
-  php7.0-common \
-  php7.0-mbstring \
-  php7.0-mcrypt \
-  php7.0-json \
-  php7.0-gd \
-  php7.0-mysql \
-  php7.0-curl \
-  php7.0-zip \
-  php7.0-xml \
-  php7.0-sqlite3 && \
+  php7.1 \
+  php7.1-fpm \
+  php7.1-cli \
+  php7.1-common \
+  php7.1-mbstring \
+  php7.1-mcrypt \
+  php7.1-json \
+  php7.1-gd \
+  php7.1-mysql \
+  php7.1-curl \
+  php7.1-zip \
+  php7.1-xml \
+  php7.1-sqlite3 && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 
 
 RUN sed -i '/;daemonize /c \
-daemonize = no' /etc/php/7.0/fpm/php-fpm.conf
+daemonize = no' /etc/php/7.1/fpm/php-fpm.conf
 
 RUN sed -i '/^listen /c \
-listen = 0.0.0.0:9000' /etc/php/7.0/fpm/pool.d/www.conf
+listen = 0.0.0.0:9000' /etc/php/7.1/fpm/pool.d/www.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/
 
 EXPOSE 80
-CMD service php7.0-fpm start && nginx
+CMD service php7.1-fpm start && nginx
