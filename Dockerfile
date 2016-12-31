@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 \
     apt-get update && apt-get install -y 
 
 RUN \
-  apt-get install -y nginx \
+  apt-get install -y git curl nginx \
   php7.1 \
   php7.1-fpm \
   php7.1-cli \
