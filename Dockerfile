@@ -16,6 +16,8 @@ RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 add-apt-repository ppa:ond
 RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 \
     apt-get update && apt-get install -y 
 
+RUN curl -s "https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh" | sudo bash
+
 RUN \
   apt-get install -y nginx \
   php7.0 \
@@ -30,6 +32,7 @@ RUN \
   php7.0-curl \
   php7.0-zip \
   php7.0-xml \
+  php7.0-phalcon \
   php7.0-sqlite3 && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 
