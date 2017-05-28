@@ -14,9 +14,9 @@ RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 add-apt-repository ppa:ond
 
 
 RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 \
-    apt-get update && apt-get install -y 
+    apt-get update && apt-get install -y && apt-get install curl
 
-RUN curl -s "https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh" | sudo bash
+RUN curl -s "https://packagecloud.io/install/repositories/phalcon/stable/script.deb.sh" | bash
 
 RUN \
   apt-get install -y nginx \
