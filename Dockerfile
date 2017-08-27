@@ -48,4 +48,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 WORKDIR /var/www/
 
 EXPOSE 80
+
 CMD service php7.0-fpm start && nginx
