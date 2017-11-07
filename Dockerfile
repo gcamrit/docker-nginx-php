@@ -33,6 +33,8 @@ RUN \
   php7.0-zip \
   php7.0-xml \
   php7.0-xdebug \
+  php7.1-pcntl \
+  php7.0-xdebug \
   php7.0-phalcon \
   php7.0-sqlite3 && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf
