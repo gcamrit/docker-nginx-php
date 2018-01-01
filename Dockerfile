@@ -21,6 +21,7 @@ RUN \
   php7.1 \
   php7.1-fpm \
   php7.1-cli \
+  php7.1-imap \
   php7.1-common \
   php7.1-mbstring \
   php7.1-mcrypt \
