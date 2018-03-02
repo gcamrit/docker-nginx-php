@@ -23,6 +23,7 @@ RUN apt-get install -y curl zip unzip git supervisor sqlite3 nginx \
   php7.2-opcache \
   php7.2-curl \
   php7.2-zip \
+  php7.2-xdebug \
   php7.2-xml \
   php7.2-sqlite3 \
   && echo "daemon off;" >> /etc/nginx/nginx.conf
