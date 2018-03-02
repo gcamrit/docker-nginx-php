@@ -1,45 +1,41 @@
-FROM ubuntu:16.04
+FROM ubuntu:xenial
 
-MAINTAINER MAINTAINER Amrit G.C. <music.demand01@gmail.com>
+LABEL MAINTAINER="Amrit G.C. <music.demand01@gmail.com>"
+RUN useradd -ms /bin/bash -u 1337 amritgc
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get update && \
-    apt-get install -y language-pack-en-base &&\
-    export LC_ALL=en_US.UTF-8 && \
-    export LANG=en_US.UTF-8
+RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt/sources.list.d/ppa_ondrej_php.list \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C \
+    && apt-get update
 
+RUN apt-get install -y curl zip unzip git supervisor sqlite3 nginx \
+  php7.2 \
+  php7.2-fpm \
+  php7.2-cli \
+  php7.2-bz2 \
+  php7.2-imap \
+  php7.2-common \
+  php7.2-mbstring \
+  php7.2-json \
+  php7.2-gd \
+  php7.2-intl \
+  php7.2-mysql \
+  php7.2-json \
+  php7.2-opcache \
+  php7.2-curl \
+  php7.2-zip \
+  php7.2-xml \
+  php7.2-sqlite3 \
+  && echo "daemon off;" >> /etc/nginx/nginx.conf
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y software-properties-common
-RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
-
-
-RUN DEBIAN_FRONTEND=noninteractive LC_ALL=en_US.UTF-8 \
-    apt-get update && apt-get install -y 
-
-RUN \
-  apt-get install -y git curl nginx \
-  php7.1 \
-  php7.1-fpm \
-  php7.1-cli \
-  php7.1-imap \
-  php7.1-common \
-  php7.1-mbstring \
-  php7.1-mcrypt \
-  php7.1-json \
-  php7.1-gd \
-  php7.1-mysql \
-  php7.1-curl \
-  php7.1-zip \
-  php7.1-xml \
-  php7.1-sqlite3 && \
-  echo "\ndaemon off;" >> /etc/nginx/nginx.conf
-
+ RUN apt-get -y autoremove \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN sed -i '/;daemonize /c \
-daemonize = no' /etc/php/7.1/fpm/php-fpm.conf
+daemonize = no' /etc/php/7.2/fpm/php-fpm.conf
 
 RUN sed -i '/^listen /c \
-listen = 0.0.0.0:9000' /etc/php/7.1/fpm/pool.d/www.conf
+listen = 0.0.0.0:9000' /etc/php/7.2/fpm/pool.d/www.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
