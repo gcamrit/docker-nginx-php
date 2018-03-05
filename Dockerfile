@@ -11,6 +11,7 @@ RUN apt-get install -y curl zip unzip git supervisor sqlite3 nginx \
   php7.1 \
   php7.1-fpm \
   php7.1-cli \
+  php7.1-bcmath \
   php7.1-bz2 \
   php7.1-imap \
   php7.1-common \
