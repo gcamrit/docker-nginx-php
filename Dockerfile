@@ -12,6 +12,7 @@ RUN apt-get install -y curl zip unzip git supervisor sqlite3 nginx \
   php7.2-fpm \
   php7.2-cli \
   php7.2-bz2 \
+  php7.2-bcmath \
   php7.2-imap \
   php7.2-common \
   php7.2-mbstring \
