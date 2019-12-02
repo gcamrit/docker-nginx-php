@@ -8,25 +8,25 @@ RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt
     && apt-get update
 
 RUN apt-get install -y curl zip unzip git supervisor sqlite3 nginx \
-  php7.2 \
-  php7.2-fpm \
-  php7.2-cli \
-  php7.2-bz2 \
-  php7.2-bcmath \
-  php7.2-imap \
-  php7.2-common \
-  php7.2-mbstring \
-  php7.2-json \
-  php7.2-gd \
-  php7.2-intl \
-  php7.2-mysql \
-  php7.2-json \
-  php7.2-opcache \
-  php7.2-curl \
-  php7.2-zip \
-  php7.2-xdebug \
-  php7.2-xml \
-  php7.2-sqlite3 \
+  php7.3 \
+  php7.3-fpm \
+  php7.3-cli \
+  php7.3-bz2 \
+  php7.3-bcmath \
+  php7.3-imap \
+  php7.3-common \
+  php7.3-mbstring \
+  php7.3-json \
+  php7.3-gd \
+  php7.3-intl \
+  php7.3-mysql \
+  php7.3-json \
+  php7.3-opcache \
+  php7.3-curl \
+  php7.3-zip \
+  php7.3-xdebug \
+  php7.3-xml \
+  php7.3-sqlite3 \
   && echo "daemon off;" >> /etc/nginx/nginx.conf
 
  RUN apt-get -y autoremove \
@@ -34,14 +34,14 @@ RUN apt-get install -y curl zip unzip git supervisor sqlite3 nginx \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN sed -i '/;daemonize /c \
-daemonize = no' /etc/php/7.2/fpm/php-fpm.conf
+daemonize = no' /etc/php/7.3/fpm/php-fpm.conf
 
 RUN sed -i '/^listen /c \
-listen = 0.0.0.0:9000' /etc/php/7.2/fpm/pool.d/www.conf
+listen = 0.0.0.0:9000' /etc/php/7.3/fpm/pool.d/www.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/
 
 EXPOSE 80
-CMD service php7.2-fpm start && nginx
+CMD service php7.3-fpm start && nginx
