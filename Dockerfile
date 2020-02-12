@@ -2,13 +2,10 @@ FROM ubuntu:18.04
 
 LABEL MAINTAINER="Amrit G.C. <music.demand01@gmail.com>"
 
-RUN apt-get update \
- && apt-get install -y apt-transport-https ca-certificates \
- && apt-get install -y language-pack-en-base software-properties-common apt-utils
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
+RUN apt-get update \
+ && apt-get install -y apt-transport-https ca-certificates
 
 RUN apt-get install -y software-properties-common \
  && apt-add-repository ppa:ondrej/php
